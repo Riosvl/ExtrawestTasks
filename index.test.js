@@ -97,3 +97,67 @@ describe('getOperands', function () {
         expect(result).toBe('09:59')
     })
 })
+
+
+import { isPalindrome, swapCase, countOccurrences, vowelCount,alphabetPosition } from './index'
+
+
+describe('isPalindrome', () => {
+    test('should return true, when it is a palyndrome',
+        function () {
+            const result = isPalindrome('Eva, can I see bees in a cave?')
+            expect(result).toBe(true)
+        })
+        test('should return false, when it is not a palyndrome',
+        function () {
+            const result = isPalindrome('race a car')
+            expect(result).toBe(false)
+        })
+})
+
+describe('swapCase', () => {
+    test('should return another case of character',
+        function () {
+            const result = swapCase("aBc")
+            expect(result).toBe('AbC')
+        })
+        test('should return another case of character',
+        function () {
+            const result = swapCase("GooD")
+            expect(result).toBe("gOOd")
+        })
+})
+
+describe('countOccurrences', () => {
+    test('should return count of chosen character',
+        function () {
+            const result = countOccurrences('ability', 'i')
+            expect(result).toBe(2)
+        })
+        test('should return count of chosen character',
+        function () {
+            const result = countOccurrences('abc', 'a')
+            expect(result).toBe(1)
+        })
+        test('should return count of chosen character despite to upper case',
+        function () {
+            const result = countOccurrences('ABC', 'a')
+            expect(result).toBe(1)
+        })
+})
+
+describe('vowelCount', () => {
+    test('should return count of vowel in word',
+        function () {
+            const result = vowelCount('abracadabra')
+            expect(result).toBe(5)
+        })
+})
+
+describe('alphabetPosition', () => {
+    test('should return index of each character in alphabet',
+        function () {
+            const result = alphabetPosition("The sunset sets at twelve o' clock.")
+            expect(result).toBe("20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11")
+        })
+})

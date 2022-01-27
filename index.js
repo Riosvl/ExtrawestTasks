@@ -78,3 +78,83 @@ export function getTime(time) {
 console.log(getTime('Breakfast at 09:00')) // '09:00'
 console.log(getTime('Breakfast at 09:60, Dinner at 21:00'))    //'21:00'
 console.log(getTime('Breakfast at 09:59, Dinner at 21:00'))     //'09:59'
+
+
+
+//SECOND PART OF HT
+
+const isLowerCaseChar = (character) => character === character.toLowerCase()
+
+export const isPalindrome = (str) => 
+    str.toLowerCase().replace(/[^\w]|_/g, " ").replace(/\s/g, '').split('').reverse('').join('') ===
+     str.toLowerCase().replace(/[^\w]|_/g, "").replace(/\s/g, '')
+
+console.log(isPalindrome('Eva, can I see bees in a cave?'));  		//true
+console.log(isPalindrome('race a car'))  					//false
+console.log(isPalindrome('Was it a cat I saw?'));				//true
+
+export const swapCase = (str) => {
+    let swapString = []
+    for (let i = 0; i < str.length; i++) {
+        if(isLowerCaseChar(str[i])) {
+            swapString[i] = str[i].toUpperCase()
+        } else {
+            swapString[i] = str[i].toLowerCase()
+        }
+    } 
+    return swapString.join('')
+}
+
+console.log(swapCase("aBc"));  		//"AbC"
+console.log(swapCase("GooD"));  		//"gOOd"
+console.log(swapCase("hello"));  		//"HELLO"
+console.log(swapCase("75386"));  		//"75386"
+
+
+export const countOccurrences = (str, character) => {
+    let count = 0
+    for(let i=0; i< str.length; i++) {
+        if(str[i].toLowerCase() == character.toLowerCase()) {
+            count++
+        }   
+    }
+    return count
+}
+
+console.log(countOccurrences('ability', 'i'));  		// 2
+console.log(countOccurrences('abc', 'a'));  			//1
+console.log(countOccurrences('ABC', 'a'));  			//1
+
+export const vowelCount = (str) => {
+    const vowels = ["a", "e", "i", "o", "u"]
+    
+    let count = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        if (vowels.includes(str[i])) {
+            count++;
+        }
+    }
+
+    return count
+}
+console.log(vowelCount('abracadabra')) //5
+console.log(vowelCount('letter')) //2
+console.log(vowelCount('toy')) //1
+console.log(vowelCount('555')) //0
+
+
+export const alphabetPosition = (text) => {
+    const result = []
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+    for (let i = 0; i < text.length; i++){
+        const charIndex = text[i].toLowerCase();
+        if (alphabet.indexOf(charIndex) !== -1) {
+            result.push(alphabet.indexOf(charIndex)+1);
+        }
+    }
+    return result.toString().replaceAll(',', ' ');
+}
+
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));   // "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
