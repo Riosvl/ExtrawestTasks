@@ -1,4 +1,5 @@
-import { basicOp } from './index'
+import { basicOp, getTime, stringMerge,createPhoneNumber, getOperands,
+     isPalindrome, swapCase, countOccurrences, vowelCount, alphabetPosition } from './index'
 describe('basicOp', function () {
     test('should return 4 when 2 + 2', function () {
         const result = basicOp('+', 2, 2)
@@ -26,38 +27,36 @@ describe('basicOp', function () {
     })
 })
 
-import { StringMerge } from './index'
-describe('StringMerge', function () {
+
+describe('stringMerge', function () {
     test('should return held when typed "hello", "world", "l"', function () {
-        const result = StringMerge("hello", "world", "l")
+        const result = stringMerge("hello", "world", "l")
         expect(result).toBe('held')
     })
 
     test('should return codinywhere when typed "coding", "anywhere", "n"', function () {
-        const result = StringMerge("coding", "anywhere", "n")
+        const result = stringMerge("coding", "anywhere", "n")
         expect(result).toBe('codinywhere')
     })
 
     test('should return jasamson when typed "jason", "samson", "s"', function () {
-        const result = StringMerge("jason", "samson", "s")
+        const result = stringMerge("jason", "samson", "s")
         expect(result).toBe('jasamson')
     })
 
     test('should return wondeople when typed "wonderful", "people", "e"', function () {
-        const result = StringMerge("wonderful", "people", "e")
+        const result = stringMerge("wonderful", "people", "e")
         expect(result).toBe('wondeople')
     })
 })
 
-import { createPhoneNumber } from './index'
 describe('createPhoneNumber', function () {
     test('should return "(123) 456-7890" when passed [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]', function () {
         const result = createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
         expect(result).toBe('(123) 456-7890')
     })
-}) 
+})
 
-import { getOperands } from './index'
 describe('getOperands', function () {
     test('should return "a: 1, b: 2" when 1 + 2', function () {
         const result = getOperands('1 + 2')
@@ -80,7 +79,7 @@ describe('getOperands', function () {
     })
 })
 
-import { getTime } from './index'
+
 describe('getOperands', function () {
     test('should return "09:00" when typed "Breakfast at 09:00"', function () {
         const result = getTime('Breakfast at 09:00')
@@ -99,19 +98,21 @@ describe('getOperands', function () {
 })
 
 
-import { isPalindrome, swapCase, countOccurrences, vowelCount,alphabetPosition } from './index'
-
-
 describe('isPalindrome', () => {
     test('should return true, when it is a palyndrome',
         function () {
             const result = isPalindrome('Eva, can I see bees in a cave?')
             expect(result).toBe(true)
         })
-        test('should return false, when it is not a palyndrome',
+    test('should return false, when it is not a palyndrome',
         function () {
             const result = isPalindrome('race a car')
             expect(result).toBe(false)
+        })
+        test('should return true, when it is a palyndrome',
+        function () {
+            const result = isPalindrome('Was it a cat I saw?')
+            expect(result).toBe(true)
         })
 })
 
@@ -121,10 +122,20 @@ describe('swapCase', () => {
             const result = swapCase("aBc")
             expect(result).toBe('AbC')
         })
-        test('should return another case of character',
+    test('should return another case of character',
         function () {
             const result = swapCase("GooD")
             expect(result).toBe("gOOd")
+        })
+        test('should return another case of character',
+        function () {
+            const result = swapCase("hello")
+            expect(result).toBe("HELLO")
+        })
+        test('should return another case of character',
+        function () {
+            const result = swapCase("75386")
+            expect(result).toBe("75386")
         })
 })
 
@@ -134,12 +145,12 @@ describe('countOccurrences', () => {
             const result = countOccurrences('ability', 'i')
             expect(result).toBe(2)
         })
-        test('should return count of chosen character',
+    test('should return count of chosen character',
         function () {
             const result = countOccurrences('abc', 'a')
             expect(result).toBe(1)
         })
-        test('should return count of chosen character despite to upper case',
+    test('should return count of chosen character despite to upper case',
         function () {
             const result = countOccurrences('ABC', 'a')
             expect(result).toBe(1)
@@ -151,6 +162,21 @@ describe('vowelCount', () => {
         function () {
             const result = vowelCount('abracadabra')
             expect(result).toBe(5)
+        })
+        test('should return count of vowel in word',
+        function () {
+            const result = vowelCount('letter')
+            expect(result).toBe(2)
+        })
+        test('should return count of vowel in word',
+        function () {
+            const result = vowelCount('toy')
+            expect(result).toBe(1)
+        })
+        test('should return count of vowel in word',
+        function () {
+            const result = vowelCount('555')
+            expect(result).toBe(0)
         })
 })
 
