@@ -1,6 +1,8 @@
 export const openOrSenior = (dataAboutUser) => {
     const checking = dataAboutUser.map(([age, experience]) => {
-        if (age >= 40 && experience > 15) { return 'Senior' }
+        const seniorAge = 40
+        const seniorExperience = 15
+        if (age >= seniorAge && experience > seniorExperience) { return 'Senior' }
         else { return 'Open' }
     })
 

@@ -4,7 +4,7 @@ export const transformState = (state, transforms) => {
         const currentTransform = transforms[i]
         if (currentTransform.operation === 'addProperties') {
             for (const property in currentTransform.properties) {
-               state[property] = currentTransform.properties[property]
+                Object.assign(state, currentTransform['properties'])
             }
         }
         if (currentTransform.operation === 'removeProperties') {

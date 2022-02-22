@@ -7,7 +7,7 @@ export const isPrime = (number) => {
         }
         return true
     }
-    else return false
+    return false
 }
 
 

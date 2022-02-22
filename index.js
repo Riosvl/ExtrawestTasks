@@ -75,9 +75,6 @@ export const isPalindrome = (str) =>
         .replace(/[^\w]|_/g, "")
         .replace(/\s/g, '')
 
-console.log(isPalindrome('Eva, can I see bees in a cave?'));  		//true
-console.log(isPalindrome('race a car'))  					//false
-console.log(isPalindrome('Was it a cat I saw?'));				//true
 
 export const swapCase = (str) => {
     const swapString = []
@@ -124,3 +121,4 @@ export const alphabetPosition = (text) => {
     }
     return result.toString().replaceAll(',', ' ');
 }
+
